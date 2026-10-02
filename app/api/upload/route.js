@@ -1,9 +1,12 @@
-import { put } from "@vercel/blob";
+import { handleUpload } from "@vercel/blob/client";
+import { isAdmin } from "../../../lib/auth";
 export async function POST(req) {
-  const fd = await req.formData();
-  if (!process.env.ADMIN_PASSWORD || fd.get("password") !== process.env.ADMIN_PASSWORD) return new Response("Wrong password", { status: 401 });
-  const f = fd.get("file"), section = String(fd.get("section")).replace(/[^\w -]/g, "");
-  if (!f || !f.type?.startsWith("image/")) return new Response("Images only", { status: 400 });
-  const blob = await put(`work/${section}/${Date.now()}-${f.name}`, f, { access: "public" });
-  return Response.json({ url: blob.url });
+  const body = await req.json();
+  try {
+    return Response.json(await handleUpload({
+      body, request: req,
+      onBeforeGenerateToken: async () => { if (!isAdmin()) throw new Error("Not logged in"); return { allowedContentTypes: ["image/*", "audio/*"] }; },
+      onUploadCompleted: async () => {},
+    }));
+  } catch (e) { return new Response(e.message, { status: 400 }); }
 }

@@ -1,7 +1,7 @@
 import { del } from "@vercel/blob";
+import { isAdmin } from "../../../lib/auth";
 export async function POST(req) {
-  const { url, password } = await req.json();
-  if (!process.env.ADMIN_PASSWORD || password !== process.env.ADMIN_PASSWORD) return new Response("Wrong password", { status: 401 });
-  await del(url);
-  return Response.json({ ok: true });
+  if (!isAdmin()) return new Response("Not logged in", { status: 401 });
+  const { url } = await req.json();
+  try { await del(url); return Response.json({ ok: true }); } catch (e) { return new Response(e.message, { status: 500 }); }
 }
