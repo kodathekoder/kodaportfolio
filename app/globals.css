@@ -39,3 +39,4 @@ b{font-weight:700;color:#fff}small{color:var(--muted)}.muted{color:var(--muted)}
 .row2 button,.ctl.on button{padding:7px 12px;border:0;border-radius:8px;cursor:pointer}.ctl.on{align-items:center}
 .back{position:fixed;top:16px;left:16px;z-index:20;background:var(--card);color:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer}
 .foot{text-align:center;color:var(--muted);font-size:.9rem;padding:0 20px 90px}.foot a{color:#fff}
+.music input[type=range]{width:70px;accent-color:#fff}

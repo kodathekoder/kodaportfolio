@@ -6,13 +6,15 @@ const fmt = ms => { const s = Math.max(0, Math.floor(ms / 1000)), h = Math.floor
 export default function DiscordCard({ id }) {
   const [d, setD] = useState(null);
   const [now, setNow] = useState(Date.now());
+  const [err, setErr] = useState("");
   useEffect(() => {
     let alive = true;
-    const load = () => fetch(`https://api.lanyard.rest/v1/users/${id}`).then(r => r.json()).then(j => alive && j.success && setD(j.data)).catch(() => {});
+    const load = () => fetch(`https://api.lanyard.rest/v1/users/${id}`).then(r => r.json()).then(j => { if (!alive) return; if (j.success) { setD(j.data); setErr(""); } else setErr(j.error?.message || "Lanyard error"); }).catch(() => setErr("Couldn't reach Lanyard"));
+    if (!/^\d{15,}$/.test(String(id))) { setErr("Set discordId in lib/config.js to your numeric Discord user ID"); return; }
     load(); const a = setInterval(load, 15000), b = setInterval(() => setNow(Date.now()), 1000);
     return () => { alive = false; clearInterval(a); clearInterval(b); };
   }, [id]);
-  if (!d) return <div className="card"><div className="who"><div className="av" /><b>Loading...</b></div></div>;
+  if (!d) return <div className="card"><div className="who"><div className="av" /><b>{err || "Loading..."}</b></div></div>;
   const u = d.discord_user;
   const avatar = u.avatar ? `https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png?size=128` : "https://cdn.discordapp.com/embed/avatars/0.png";
   const act = d.activities.find(a => a.type === 0) || d.activities.find(a => a.type === 2);
