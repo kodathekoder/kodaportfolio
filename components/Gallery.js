@@ -4,8 +4,11 @@ import { useRouter } from "next/navigation";
 export default function Gallery({ sections }) {
   const router = useRouter();
   const [pw, setPw] = useState("");
-  useEffect(() => setPw(sessionStorage.getItem("pw") || ""), []);
-  const login = () => { const v = prompt("Admin password"); if (v) { sessionStorage.setItem("pw", v); setPw(v); } };
+  useEffect(() => { const v = sessionStorage.getItem("pw"); if (v) fetch("/api/auth", { method: "POST", body: JSON.stringify({ password: v }) }).then(r => r.ok && setPw(v)); }, []);
+  const login = async () => { const v = prompt("Admin password"); if (!v) return;
+    const r = await fetch("/api/auth", { method: "POST", body: JSON.stringify({ password: v }) });
+    if (!r.ok) return alert("Wrong password");
+    sessionStorage.setItem("pw", v); setPw(v); };
   const logout = () => { sessionStorage.removeItem("pw"); setPw(""); };
   async function upload(section, files) {
     for (const f of files) {
