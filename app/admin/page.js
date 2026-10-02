@@ -53,7 +53,7 @@ export default function Admin() {
   );
   return (
     <main className="adm">
-      <div className="bar"><a href="/portfolio" className="muted">← Back to site</a><button className="lnk" onClick={logout}>Log out</button></div>
+      <div className="bar"><span /><button className="lnk" onClick={logout}>Log out</button></div>
       <div className="tabs">{TABS.map((t, i) => <button key={t.label} className={i === tab ? "on" : ""} onClick={() => setTab(i)}>{t.label}</button>)}</div>
       <div className="sh"><h2>{T.label}</h2><hr />
         <label className="btn sm">+ Add {T.kind === "music" ? "songs" : "images"}<input hidden type="file" multiple accept={T.kind === "music" ? "audio/*" : "image/*"} onChange={e => { add(e.target.files); e.target.value = ""; }} /></label>

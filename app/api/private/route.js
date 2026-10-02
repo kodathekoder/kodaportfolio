@@ -5,8 +5,9 @@ const no = () => new Response("Not logged in", { status: 401 });
 const err = e => new Response("Private store error: " + e.message, { status: 500 });
 export async function GET(req) {
   if (!isAdmin()) return no();
-  const p = new URL(req.url).searchParams.get("p"), token = privToken();
+  const p = new URL(req.url).searchParams.get("p");
   try {
+    const token = privToken();
     if (!p) return Response.json({ files: (await list({ prefix: "private/", token })).blobs.map(b => ({ pathname: b.pathname, url: b.url })) });
     if (!p.startsWith("private/")) return new Response("Bad path", { status: 400 });
     const r = await get(p, { access: "private", token });
