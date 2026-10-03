@@ -1,21 +1,18 @@
-import Link from "next/link";
-import DiscordCard from "../components/DiscordCard";
-import ViewCounter from "../components/ViewCounter";
 import Bold from "../components/Bold";
+import ViewCounter from "../components/ViewCounter";
+import DiscordCard from "../components/DiscordCard";
+import PortfolioSection from "../components/PortfolioSection";
 import { config as c } from "../lib/config";
+export const dynamic = "force-dynamic";
 export default function Home() {
   return (
     <main>
-      <section className="hero">
-        <div className="left">
-          <DiscordCard id={c.discordId} />
-          <Link href="/portfolio" className="btn">View Portfolio →</Link>
-        </div>
-        <div className="right">
-          {c.bio.map((t, i) => <p key={i}><Bold text={t} /></p>)}
-          <ViewCounter />
-        </div>
+      <section className="hero"><DiscordCard id={c.discordId} buttons={c.buttons} /></section>
+      <section className="about">
+        {c.bio.map((t, i) => <p key={i}><Bold text={t} /></p>)}
+        <ViewCounter />
       </section>
+      <PortfolioSection />
       <section className="contact">
         <h2>{c.contact.title}</h2>
         <p className="muted">{c.contact.sub}</p>

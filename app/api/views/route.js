@@ -2,7 +2,7 @@ import { put, get } from "@vercel/blob";
 import { privToken } from "../../../lib/auth";
 import { config } from "../../../lib/config";
 export const dynamic = "force-dynamic";
-const P = "meta/views.json";
+const P = "meta/views-v2.json";
 async function read(token) {
   const r = await get(P, { access: "private", token, useCache: false });
   if (!r?.stream) return config.views; // first time: start from config.views

@@ -2,10 +2,10 @@
 import { usePathname, useRouter } from "next/navigation";
 export default function PageChrome() {
   const path = usePathname(), router = useRouter();
-  if (path === "/") return null;
+  const home = path === "/";
   const back = () => (window.history.length > 1 ? router.back() : router.push("/"));
   return (<>
-    <button className="back" onClick={back}>← Back</button>
+    {!home && <button className="back" onClick={back}>← Back</button>}
     <footer className="foot">koda was here :D - <a href="https://discord.gg/t4VYmx9D4C" target="_blank" rel="noopener noreferrer">Discord</a></footer>
   </>);
 }

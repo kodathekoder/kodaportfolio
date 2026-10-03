@@ -48,3 +48,18 @@ b{font-weight:700;color:#fff}small{color:var(--muted)}.muted{color:var(--muted)}
 .x{position:absolute;top:14px;right:14px;background:none;border:0;color:var(--muted);font-size:1.1rem;cursor:pointer}
 .lf{display:flex;flex-direction:column;gap:14px}.lf input{background:#0a0a0a;border:1px solid var(--line);border-radius:10px;padding:12px;color:#fff}.lf .btn{border:0;text-align:center}
 .panel .tabs{padding-right:30px;align-items:center}.panel .tabs .lnk{margin-left:auto}
+.hero{min-height:88vh;display:flex;justify-content:center;align-items:center;padding:60px 6vw}
+.about{max-width:760px;margin:0 auto;padding:90px 6vw;text-align:center;color:var(--muted);font-size:1.12rem;line-height:1.6}
+.pc{width:100%;max-width:560px;background:#0e0e11;border:1px solid #1f1f25;border-radius:22px;padding:28px 30px}
+.pc-top{display:flex;gap:22px;align-items:flex-start}.pc .avw,.pc .av{width:68px;height:68px}.pc .avw{flex:none}.pc .sdot{width:18px;height:18px;border-color:#0e0e11}
+.pc-pills{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
+.pc-name{font-size:1.3rem;font-weight:700}.pc-h{font-family:var(--mono);color:#6b6b76;font-size:.85rem;margin-top:4px}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.8rem;border-radius:8px;padding:5px 12px;border:1px solid #232329;color:#a0a0ab}
+.tag i{width:7px;height:7px;border-radius:50%;background:currentColor}
+.pc-btns{display:flex;gap:10px;margin:26px 0 24px;flex-wrap:wrap}
+.pc-btns a{width:44px;height:44px;border-radius:12px;border:1px solid #232329;background:#131318;color:#cfcfd6;display:grid;place-items:center;font-size:1.05rem;transition:.15s}
+.pc-btns a:hover{background:#1c1c23;color:#fff}
+.pc-act{border-top:1px solid #1f1f25;padding-top:20px}.pc-lab{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:#6b6b76;margin-bottom:14px}
+.pc-row{display:flex;gap:16px;align-items:center}.pc-row img,.pc-row .ph{width:54px;height:54px;border-radius:12px;background:#1b2a22;object-fit:cover;flex:none}
+.pc-row div:last-child{display:flex;flex-direction:column;gap:3px;min-width:0}.pc-row small{font-family:var(--mono)}
+.work{scroll-margin-top:20px}
