@@ -19,6 +19,5 @@ export default function Gallery({ sections }) {
       </section>
     ))}
     {view && <div className="lb" onClick={() => setView(null)}><img src={view} alt="" /></div>}
-    <a className="admin" href="/admin">Admin</a>
   </>);
 }

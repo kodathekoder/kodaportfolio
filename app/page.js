@@ -1,5 +1,6 @@
 import Link from "next/link";
 import DiscordCard from "../components/DiscordCard";
+import ViewCounter from "../components/ViewCounter";
 import Bold from "../components/Bold";
 import { config as c } from "../lib/config";
 export default function Home() {
@@ -12,7 +13,7 @@ export default function Home() {
         </div>
         <div className="right">
           {c.bio.map((t, i) => <p key={i}><Bold text={t} /></p>)}
-          <small className="views">Views: <b>{c.views}</b></small>
+          <ViewCounter />
         </div>
       </section>
       <section className="contact">

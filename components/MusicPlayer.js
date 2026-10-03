@@ -5,7 +5,11 @@ export default function MusicPlayer() {
   const a = useRef(null), want = useRef(false);
   const [t, setT] = useState([]), [i, setI] = useState(0), [on, setOn] = useState(false), [err, setErr] = useState(""), [vol, setVol] = useState(0.15);
   const play = () => { setErr(""); a.current?.play().then(() => setOn(true)).catch(e => { setOn(false); setErr(e.message); }); };
-  useEffect(() => { fetch("/api/list?prefix=music/").then(r => r.json()).then(j => setT(j.files || [])).catch(() => {}); }, []);
+  useEffect(() => {
+    const ld = () => fetch("/api/list?prefix=music/").then(r => r.json()).then(j => setT(j.files || [])).catch(() => {});
+    ld(); window.addEventListener("music-changed", ld);
+    return () => window.removeEventListener("music-changed", ld);
+  }, []);
   useEffect(() => { if (a.current) a.current.volume = vol; }, [vol, t.length]);
   useEffect(() => { if (want.current) play(); }, [i]);
   if (!t.length) return null;
