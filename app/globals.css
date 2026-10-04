@@ -63,3 +63,21 @@ b{font-weight:700;color:#fff}small{color:var(--muted)}.muted{color:var(--muted)}
 .pc-row{display:flex;gap:16px;align-items:center}.pc-row img,.pc-row .ph{width:54px;height:54px;border-radius:12px;background:#1b2a22;object-fit:cover;flex:none}
 .pc-row div:last-child{display:flex;flex-direction:column;gap:3px;min-width:0}.pc-row small{font-family:var(--mono)}
 .work{scroll-margin-top:20px}
+/* ===== code look: mono font, dark panels, chips ===== */
+:root{--bg:#08080a;--card:#0e0e11;--line:#1f1f25}
+body{font-size:15px}
+input,button,textarea{font-family:inherit}
+.chip{background:#1b1b22;border:1px solid #26262e;border-radius:6px;padding:1px 7px;color:#fff;font-weight:600;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.about{font-size:.95rem}
+.about p{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 24px;margin:0 0 16px;text-align:left;line-height:1.9}
+.views{display:inline-block;margin-top:10px;padding:6px 14px;background:var(--card);border:1px solid var(--line);border-radius:8px;font-size:.8rem}
+.work h1::before,.sh h2::before{content:"// ";color:#6b6b76}
+.work h1{font-size:1.7rem}
+.status{font-size:.9rem}
+.pill small{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}.pill b{font-size:.95rem}
+.ico.round{background:#131318;border:1px solid #232329}
+.contact h2{font-size:1.8rem}
+.btn{font-size:.85rem}
+.foot{font-size:.85rem}
+.foot a{display:inline-block;margin-left:4px;padding:3px 10px;border:1px solid #232329;background:#131318;border-radius:8px;color:#fff;text-decoration:none}
+.tabs button,.row2,.music,.back{font-size:.85rem}
