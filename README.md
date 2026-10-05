@@ -1,5 +1,4 @@
-1. Push to GitHub, import in Vercel.
-2. Storage > Blob store (PUBLIC) connected to project -> adds BLOB_READ_WRITE_TOKEN.
-3. Storage > create a second Blob store set to PRIVATE, connect it to the project with env prefix "PRIVATE" (variable must end up named PRIVATE_BLOB_READ_WRITE_TOKEN or PRIVATE_READ_WRITE_TOKEN; if different, edit lib/auth.js).
-4. Env var ADMIN_PASSWORD. Redeploy.
-Manage everything by typing -admin anywhere on the site. Edit text in lib/config.js. Discord card: set discordId and join discord.gg/lanyard.
+1. Push to GitHub and import the project into Vercel.
+2. Add a Vercel Blob store if you want the music player to load files from `music/`.
+3. Edit `lib/config.js` for your Discord ID, links, text, and contact details.
+4. The site uses the public `/api/list` route for music and the Lanyard API for Discord presence.

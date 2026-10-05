@@ -28,8 +28,7 @@ export default function Home() {
       <Glow className="s6">
         <div className="lab">Completed projects</div><div className="big">{b.completed.title}</div><p className="mut">{b.completed.text}</p><ViewCounter />
       </Glow>
-      <Glow className="s5"><div className="lab">Mindset</div><div className="quote">&ldquo;{b.mindset}&rdquo;</div></Glow>
-      <Glow className="s7" href="/portfolio"><div className="lab">Works</div><div className="big2">PORTFOLIO</div><p className="mut">Open the gallery</p></Glow>
+      <Glow className="s12"><div className="lab">Mindset</div><div className="quote">&ldquo;{b.mindset}&rdquo;</div></Glow>
     </main>
   );
 }
