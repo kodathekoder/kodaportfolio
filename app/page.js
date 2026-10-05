@@ -1,6 +1,5 @@
 import Glow from "../components/Glow";
 import Presence from "../components/Presence";
-import ViewCounter from "../components/ViewCounter";
 import { config as c } from "../lib/config";
 import { bento as b } from "../lib/bento";
 export default function Home() {
@@ -26,7 +25,7 @@ export default function Home() {
         <span className={"avail" + (open ? "" : " no")}><i />{open ? "Available for projects" : "Not taking projects"}</span>
       </Glow>
       <Glow className="s6">
-        <div className="lab">Completed projects</div><div className="big">{b.completed.title}</div><p className="mut">{b.completed.text}</p><ViewCounter />
+        <div className="lab">Completed projects</div><div className="big">{b.completed.title}</div><p className="mut">{b.completed.text}</p>
       </Glow>
       <Glow className="s12"><div className="lab">Mindset</div><div className="quote">&ldquo;{b.mindset}&rdquo;</div></Glow>
     </main>

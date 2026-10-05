@@ -1,4 +1,5 @@
-1. Push to GitHub and import the project into Vercel.
-2. Add a Vercel Blob store if you want the music player to load files from `music/`.
-3. Edit `lib/config.js` for your Discord ID, links, text, and contact details.
-4. The site uses the public `/api/list` route for music and the Lanyard API for Discord presence.
+# Clean pink Vercel site
+
+This version removes the Admin and Portfolio routes/features. It is intended to be deployed as a fresh Vercel project or after deleting the old `/admin` and `/portfolio` files from the existing repository.
+
+If Vercel still reports a build for `/admin`, the old `/admin` route still exists in the repository/project being deployed; uploading new files does not delete old tracked files.
